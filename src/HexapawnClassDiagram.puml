@@ -4,8 +4,8 @@
 
 abstract class AbstractPawn{
     direction
-    # {field} pawnID = 0
-    type = BLANK_SPACE
+    {field} pawnID
+    type
     attack(isAttackingLeft)
     move()
 }
@@ -25,13 +25,14 @@ class AIPawn{
 class HexapawnBoard{
     # AbstractPawn board[3][3]
     # move(pawnID)
-    # attack(isAttackingLeft)
-    - checkForWinner()
+    # attack(pawnID, isAttackingLeft)
+    # checkForWinner()
     # returnBoard()
+    # resetBoard()
 }
 
-class boardDrawer{
-
+class BoardDrawer{
+    # drawBoard()
 }
 
 class Main{
@@ -49,10 +50,14 @@ enum Directions{
     BACKWARDS
 }
 
-boardDrawer "Gets board" <--o Main
+BoardDrawer "Gets board" <--o Main
 Main o-- HexapawnBoard
 HexapawnBoard "1" o-- "many" AbstractPawn : contains
 AbstractPawn <|-- PlayerPawn
 AbstractPawn <|-- AIPawn
+
+hide PlayerPawn
+hide AIPawn
+hide AbstractPawn methods
 
 @enduml
