@@ -1,4 +1,4 @@
-package org.example;
+package edu.sandiego.comp305.sp23;
 
 /**
  * Black Pawn

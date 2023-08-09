@@ -44,6 +44,11 @@ enum PawnTypes{
     BLANK_SPACE
 }
 
+enum Directions{
+    FORWARDS
+    BACKWARDS
+}
+
 boardDrawer "Gets board" <--o Main
 Main o-- HexapawnBoard
 HexapawnBoard "1" o-- "many" AbstractPawn : contains
