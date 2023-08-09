@@ -5,7 +5,7 @@
 abstract class AbstractPawn{
     direction
     # {field} pawnID = 0
-    isAI
+    type = BLANK_SPACE
     attack(isAttackingLeft)
     move()
 }
@@ -13,13 +13,13 @@ abstract class AbstractPawn{
 class PlayerPawn{
     direction = up
     # pawnID = 1, 2, or 3
-    isAI = false
+    type = PLAYER
 }
 
 class AIPawn{
     direction = down
     # pawnID = -1, -2, or -3
-    isAI = true
+    type = AI
 }
 
 class HexapawnBoard{
@@ -36,6 +36,12 @@ class boardDrawer{
 
 class Main{
 
+}
+
+enum PawnTypes{
+    PLAYER
+    AI
+    BLANK_SPACE
 }
 
 boardDrawer "Gets board" <--o Main
