@@ -2,7 +2,7 @@
 'https://plantuml.com/class-diagram
 
 
-abstract class AbstractPawn{
+abstract class Pawn{
     - direction
     - {field} pawnID
     - type
@@ -23,7 +23,7 @@ class AIPawn{
 }
 
 class HexapawnBoard{
-    - AbstractPawn board[3][3]
+    - Pawn board[3][3]
     # move(pawnID)
     # attack(pawnID, isAttackingLeft)
     # doesWinnerExist()
@@ -32,7 +32,7 @@ class HexapawnBoard{
 }
 
 class BoardDrawer{
-    # drawBoard()
+    # {static} drawBoard(Pawn board[3][3])
 }
 
 class Main{
@@ -57,17 +57,17 @@ enum StatesOfGame{
     NO_WINNER
 }
 
-AbstractPawn o-- PawnTypes
-AbstractPawn o-- Directions
-AbstractPawn o-- StatesOfGame
+Pawn o-- PawnTypes
+Pawn o-- Directions
+Pawn o-- StatesOfGame
 BoardDrawer "Gets board" <--o Main
 Main o-- HexapawnBoard
-HexapawnBoard "1" o-- "many" AbstractPawn : contains
-AbstractPawn <|-- PlayerPawn
-AbstractPawn <|-- AIPawn
+HexapawnBoard "1" o-- "many" Pawn : contains
+Pawn <|-- PlayerPawn
+Pawn <|-- AIPawn
 
 hide PlayerPawn
 hide AIPawn
-hide AbstractPawn methods
+hide Pawn methods
 
 @enduml
