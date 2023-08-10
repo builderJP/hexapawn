@@ -1,7 +1,7 @@
 package edu.sandiego.comp305.sp23;
 
 public class HexapawnBoard{
-    protected AbstractPawn[][] board = new AbstractPawn[3][3];
+    private Pawn[][] board = new Pawn[3][3];
 
     HexapawnBoard(){
 
@@ -11,19 +11,19 @@ public class HexapawnBoard{
 
     }
 
-    protected void attack(int pawnID, boolean isAttackingLeft){
+    protected void attack(int pawnID, boolean isAttackingWestward){
 
     }
 
-    protected boolean doesWinnerExist(boolean isPlayersTurn){
-        return false;
+    protected StatesOfGame doesWinnerExist(boolean isPlayersTurn){
+        return StatesOfGame.NO_WINNER;
     }
 
     protected void resetBoard(){
 
     }
 
-    protected AbstractPawn[][] getBoard(){
+    protected Pawn[][] getBoard(){
         return null;
     }
 

@@ -3,9 +3,9 @@
 
 
 abstract class AbstractPawn{
-    direction
-    {field} pawnID
-    type
+    - direction
+    - {field} pawnID
+    - type
     attack(isAttackingLeft)
     move()
 }
@@ -23,11 +23,11 @@ class AIPawn{
 }
 
 class HexapawnBoard{
-    # AbstractPawn board[3][3]
+    - AbstractPawn board[3][3]
     # move(pawnID)
     # attack(pawnID, isAttackingLeft)
-    # checkForWinner()
-    # returnBoard()
+    # doesWinnerExist()
+    # getBoard()
     # resetBoard()
 }
 
@@ -40,16 +40,26 @@ class Main{
 }
 
 enum PawnTypes{
-    PLAYER
-    AI
+    WHITE
+    BLACK
     BLANK_SPACE
 }
 
 enum Directions{
     FORWARDS
     BACKWARDS
+    NONE
 }
 
+enum StatesOfGame{
+    WHITE_WON
+    BLACK_WON
+    NO_WINNER
+}
+
+AbstractPawn o-- PawnTypes
+AbstractPawn o-- Directions
+AbstractPawn o-- StatesOfGame
 BoardDrawer "Gets board" <--o Main
 Main o-- HexapawnBoard
 HexapawnBoard "1" o-- "many" AbstractPawn : contains
