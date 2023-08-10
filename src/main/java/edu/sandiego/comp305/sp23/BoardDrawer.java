@@ -43,10 +43,10 @@ package edu.sandiego.comp305.sp23;
 public class BoardDrawer{
 
     BoardDrawer(){
-
+        //Do we need a constructor???
     }
 
-    protected String drawBoard(){
+    protected static String drawBoard(Pawn[][] hexapawnBoard){
         //This is just the starting board
         return ":::::     :::::\n: _ :  _  : _ :\n_(#)__(#)__(#)_\n     :::::     \n     :::::     \n" +
                 "     :::::     \n:::::     :::::\n: _ :  _  : _ :\n_(1)__(2)__(3)_\n";
