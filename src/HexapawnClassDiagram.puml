@@ -2,24 +2,14 @@
 'https://plantuml.com/class-diagram
 
 
-abstract class Pawn{
+class Pawn{
     - direction
     - {field} pawnID
     - type
-    attack(isAttackingLeft)
-    move()
-}
-
-class PlayerPawn{
-    direction = up
-    # pawnID = 1, 2, or 3
-    type = PLAYER
-}
-
-class AIPawn{
-    direction = down
-    # pawnID = -1, -2, or -3
-    type = AI
+    + equals(otherObj)
+    + getDirection()
+    + getPawnID()
+    + getType()
 }
 
 class HexapawnBoard{
@@ -63,11 +53,5 @@ Pawn o-- StatesOfGame
 BoardDrawer "Gets board" <--o Main
 Main o-- HexapawnBoard
 HexapawnBoard "1" o-- "many" Pawn : contains
-Pawn <|-- PlayerPawn
-Pawn <|-- AIPawn
-
-hide PlayerPawn
-hide AIPawn
-hide Pawn methods
 
 @enduml
