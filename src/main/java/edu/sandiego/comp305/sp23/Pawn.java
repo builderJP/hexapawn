@@ -16,4 +16,26 @@ public class Pawn{
         }
     }
 
+    public Directions getDirection(){
+        return this.direction;
+    }
+
+    public PawnTypes getType(){
+        return this.type;
+    }
+
+    public int getPawnID(){
+        return this.pawnID;
+    }
+
+    @Override
+    public boolean equals(Object otherObj){
+        if(!(otherObj instanceof Pawn)){
+            return false;
+        }
+
+        Pawn otherPawn = (Pawn) otherObj;
+
+        return this.direction == otherPawn.getDirection() && this.pawnID == otherPawn.getPawnID() && this.type == otherPawn.type;
+    }
 }
