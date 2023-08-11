@@ -22,7 +22,7 @@ class HexapawnBoardTest{
                 {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0)},
                 {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
 
-        assertEquals(expectedOutput, board.getBoard());
+        assertArrayEquals(expectedOutput, board.getBoard());
     }
 
     @Test
@@ -35,7 +35,7 @@ class HexapawnBoardTest{
                 {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0)},
                 {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
 
-        assertEquals(expectedOutput, board.getBoard());
+        assertArrayEquals(expectedOutput, board.getBoard());
     }
 
     @Test
@@ -48,7 +48,7 @@ class HexapawnBoardTest{
                 {new Pawn(PawnTypes.WHITE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLACK, -3)},
                 {new Pawn(PawnTypes.BLANK_SPACE, 1), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
 
-        assertEquals(expectedOutput, board.getBoard());
+        assertArrayEquals(expectedOutput, board.getBoard());
     }
 
     @Test
@@ -62,7 +62,7 @@ class HexapawnBoardTest{
                 {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.BLANK_SPACE, 0)},
                 {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
 
-        assertEquals(expectedOutput, board.getBoard());
+        assertArrayEquals(expectedOutput, board.getBoard());
     }
 
     @Test
@@ -76,7 +76,7 @@ class HexapawnBoardTest{
                 {new Pawn(PawnTypes.BLACK, -2), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0)},
                 {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
 
-        assertEquals(expectedOutput, board.getBoard());
+        assertArrayEquals(expectedOutput, board.getBoard());
     }
 
     @Test
