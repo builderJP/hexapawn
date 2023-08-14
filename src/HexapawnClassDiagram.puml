@@ -6,6 +6,8 @@ class Pawn{
     - direction
     - {field} pawnID
     - type
+    + Pawn(PawnTypes type, int pawnID)
+    + Pawn(Pawn otherPawn)
     + equals(otherObj)
     + getDirection()
     + getPawnID()
@@ -13,12 +15,17 @@ class Pawn{
 }
 
 class HexapawnBoard{
-    - Pawn board[3][3]
-    # move(pawnID)
-    # attack(pawnID, isAttackingLeft)
-    # doesWinnerExist()
-    # getBoard()
-    # resetBoard()
+    - Pawn[][] board
+    + HexapawnBoard()
+    + void move(int pawnID)
+    + void attack(int pawnID, boolean isAttackingWestward)
+    + StatesOfGame doesWinnerExist(boolean isWhitesTurn)
+    + Pawn[][] getBoard()
+    + void resetBoard()
+    - int[] getPawnPosition(int pawnID)
+    - Pawn removePawn(int[] postionOfPawn)
+    - boolean isInBounds(int targetRow, int targetColumn)
+    - PawnTypes getOpponentsColor(Pawn targetPawn)
 }
 
 class BoardDrawer{
@@ -38,7 +45,7 @@ enum PawnTypes{
 enum Directions{
     FORWARDS
     BACKWARDS
-    NONE
+    BLANK_SPACE
 }
 
 enum StatesOfGame{
@@ -49,9 +56,9 @@ enum StatesOfGame{
 
 Pawn o-- PawnTypes
 Pawn o-- Directions
-Pawn o-- StatesOfGame
+HexapawnBoard o-- StatesOfGame
 BoardDrawer "Gets board" <--o Main
 Main o-- HexapawnBoard
-HexapawnBoard "1" o-- "many" Pawn : contains
+HexapawnBoard "One" o-- "Many" Pawn : contains
 
 @enduml
