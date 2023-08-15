@@ -4,8 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for Pawn
+ * @author JP Tasto
+ */
 class PawnTest{
 
+    /**
+     * Tests the equality of two Pawn objects that have the same type and pawn ID.
+     */
     @Test
     void testEquals(){
         Pawn pawn = new Pawn(PawnTypes.BLACK, -2);
@@ -14,6 +21,9 @@ class PawnTest{
         assertEquals(pawn, otherPawn);
     }
 
+    /**
+     * Tests inequality of two Pawn objects that have different types and pawn IDs.
+     */
     @Test
     void testNotEqual(){
         Pawn pawn = new Pawn(PawnTypes.BLACK, -2);
@@ -22,6 +32,9 @@ class PawnTest{
         assertNotEquals(pawn, otherPawn);
     }
 
+    /**
+     * Tests comparison of a Pawn object with an object of a different type.
+     */
     @Test
     void testCompareToNonPawn(){
         Pawn pawn = new Pawn(PawnTypes.BLACK, -2);

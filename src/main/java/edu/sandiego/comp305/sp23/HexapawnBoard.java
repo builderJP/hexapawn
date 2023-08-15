@@ -159,6 +159,8 @@ public class HexapawnBoard{
     /**
      * Resets the board to the initial/following configuration of pawns:
      * white pawns on the bottommost row and black pawns on the topmost row.
+     * The numbering system used for IDing the pawns is to number them 1 to 3, from West to East,
+     * giving negative numbers to black and positive numbers to white.
      */
     public void resetBoard(){
         this.board = new Pawn[][]{
