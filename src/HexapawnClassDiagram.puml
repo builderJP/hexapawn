@@ -29,7 +29,12 @@ class HexapawnBoard{
 }
 
 class BoardDrawer{
-    # {static} drawBoard(Pawn board[3][3])
+    - Pawn[][] hexapawnBoard;
+    - final boolean[][] isBlackTile
+    + BoardDrawer()
+    + drawBoard(Pawn[][] board)
+    - String drawPawn(int curLine, int curRowIndex, int curColumnIndex, PawnTypes pawnType)
+    - String drawEmptySquare(int curRowIndex, int curColumnIndex)
 }
 
 class Main{
