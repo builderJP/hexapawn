@@ -5,7 +5,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for BoardDrawer
+ * @author JP Tasto
+ */
 class BoardDrawerTest{
+    private static BoardDrawer boardDrawer;
+
+    @BeforeAll
+    public static void createHexapawnBoard(){
+        boardDrawer = new BoardDrawer();
+    }
 
     @Test
     void drawBlankBoard(){
@@ -26,7 +36,7 @@ class BoardDrawerTest{
                 :::::     :::::
                 """;
 
-        assertEquals(expectedOutcome, BoardDrawer.drawBoard(blankBoard));
+        assertEquals(expectedOutcome, boardDrawer.drawBoard(blankBoard));
     }
 
     @Test
@@ -48,7 +58,7 @@ class BoardDrawerTest{
                 _(1)__(2)__(3)_
                 """;
 
-        assertEquals(expectedOutcome, BoardDrawer.drawBoard(blankBoard));
+        assertEquals(expectedOutcome, boardDrawer.drawBoard(blankBoard));
     }
 
     @Test
@@ -70,6 +80,6 @@ class BoardDrawerTest{
                 _(1)_     _(#)_
                 """;
 
-        assertEquals(expectedOutcome, BoardDrawer.drawBoard(blankBoard));
+        assertEquals(expectedOutcome, boardDrawer.drawBoard(blankBoard));
     }
 }
