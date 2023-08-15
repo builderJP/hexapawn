@@ -2,16 +2,29 @@ package edu.sandiego.comp305.sp23;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * This class represents a Hexapawn board in the form of a 2D Array of Pawn objects.
+ * It provides methods for moving and attacking pawns, checking for a winner or stalemate,
+ * and resetting the board to its initial state.
+ * The methods in this class assume that all Pawn objects (that aren't blank spaces) have different pawnIDs.
+ * @author JP Tasto
+ */
 public class HexapawnBoard{
     private Pawn[][] board;
 
+    /**
+     * Constructs a new HexapawnBoard with the initial configuration of pawns:
+     * white pawns on the bottommost row and black pawns on the topmost row.
+     */
     public HexapawnBoard(){
         this.resetBoard();
     }
 
     /**
-     * note: it assumes that this is a valid move
-     * @param pawnID
+     * Moves a pawn with the specified ID forward.
+     * It is assumed that the move is valid (i.e. the space in front of this pawn is empty).
+     *
+     * @param pawnID The identification number of the pawn to be moved.
      */
     public void move(int pawnID){
         int[] positionOfPawn = getPawnPosition(pawnID);
@@ -22,7 +35,7 @@ public class HexapawnBoard{
             int prevColumn = positionOfPawn[1];
             Pawn targetPawn = removePawn(positionOfPawn);
 
-            //Moves pawn up or down accordingly
+            //Moves pawn up or down according to its direction
             if(targetPawn.getDirection() == Directions.UPWARDS){
                 this.board[prevRow - 1][prevColumn] = new Pawn(targetPawn);
             } else{
@@ -32,9 +45,13 @@ public class HexapawnBoard{
     }
 
     /**
-     * note: it assumes that this is a valid move
-     * @param pawnID
-     * @param isAttackingWestward
+     * Makes the pawn with the specified ID attack one of its forwards diagonals.
+     * It is assumed that the attack is valid (i.e. the forward diagonal tile it is attacking has an enemy pawn on it).
+     *
+     * @param pawnID The identification number of the attacking pawn.
+     * @param isAttackingWestward True if the attack is westward, false if it is eastward.
+     *                            West & East are used as left & right depend on what
+     *                            end/side of the board you are viewing the board from.
      */
     public void attack(int pawnID, boolean isAttackingWestward){
         int[] positionOfPawn = getPawnPosition(pawnID);
@@ -61,6 +78,12 @@ public class HexapawnBoard{
         }
     }
 
+    /**
+     * Checks if a winner exists (either via reaching the other side of the board or stalemate) or if there's no winner.
+     *
+     * @param isWhitesTurn True if it's the white player's turn, false for if it's black player's turn.
+     * @return The state of the game (BLACK_WON, WHITE_WON, NO_WINNER).
+     */
     public StatesOfGame doesWinnerExist(boolean isWhitesTurn){
         //Covers cases of winning by reaching other end of board
         for(int i = 0; i < this.board.length; i++){
@@ -133,6 +156,10 @@ public class HexapawnBoard{
         return StatesOfGame.NO_WINNER;
     }
 
+    /**
+     * Resets the board to the initial/following configuration of pawns:
+     * white pawns on the bottommost row and black pawns on the topmost row.
+     */
     public void resetBoard(){
         this.board = new Pawn[][]{
                 {new Pawn(PawnTypes.BLACK, -1), new Pawn(PawnTypes.BLACK, -2), new Pawn(PawnTypes.BLACK, -3)},
