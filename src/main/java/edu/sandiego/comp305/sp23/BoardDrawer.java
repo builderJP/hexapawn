@@ -1,57 +1,31 @@
 package edu.sandiego.comp305.sp23;
 
 /**
- * Black Pawn
- *
- *    _
- *  _(#)_
- * White (Player) Pawns
- *
- *    _    _    _
- *  _(1)__(2)__(3)_
- *
- * Board
- *  :::::     :::::
- *  :::::     :::::
- *  :::::     :::::
- *       :::::
- *       :::::
- *       :::::
- *  :::::     :::::
- *  :::::     :::::
- *  :::::     :::::
- *
- * Starting Board
- *  :::::     :::::
- *  : _ :  _  : _ :
- *  _(#)__(#)__(#)_
- *       :::::
- *       :::::
- *       :::::
- *  :::::     :::::
- *  : _ :  _  : _ :
- *  _(1)__(2)__(3)_
- *
- *  ppp
- *   .
- *  123
- *
- *  . .
- *   .
- *  . .
+ * This class provides a method for drawing an ASCII representation of a Hexapawn game board during any state of the game.
+ * The board is 15 characters wide (not including non-printing characters such as \n) and 9 characters tall.
+ * Each square of the Hexapawn board is 5 characters wide and 3 characters tall.
+ * Black squares are made with colons while white squares use empty characters/spaces.
+ * Black pawns have a pound sign in the base of their piece, while white pawns have their pawn ID in the base of their piece.
+ * @author JP Tasto
  */
 public class BoardDrawer{
 
     private Pawn[][] hexapawnBoard;
     private final boolean[][] isBlackTile = { {true, false, true}, {false, true, false}, {true, false, true} };
 
-    public BoardDrawer(){
-        //Do we need a constructor???
-    }
+    /**
+     * Default constructor for BoardDrawer.
+     */
+    public BoardDrawer(){}
 
+    /**
+     * Constructs an ASCII representation of a Hexapawn board.
+     * @param hexapawnBoard A 2D array representing the current state of game of the Hexapawn board.
+     * @return An ASCII representation of the game board provided as a parameter.
+     */
     public String drawBoard(Pawn[][] hexapawnBoard){
         this.hexapawnBoard = hexapawnBoard;
-        StringBuilder outputBoard = new StringBuilder();
+        StringBuilder outputBoard = new StringBuilder(144);
         PawnTypes[] curRow;
 
         //Goes through each row of the Hexapawn board

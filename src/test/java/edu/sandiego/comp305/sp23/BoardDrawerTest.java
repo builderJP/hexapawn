@@ -12,11 +12,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardDrawerTest{
     private static BoardDrawer boardDrawer;
 
+    /**
+     * Creates a new BoardDrawer instance before all test methods are executed.
+     */
     @BeforeAll
-    public static void createHexapawnBoard(){
+    public static void createBoardDrawer(){
         boardDrawer = new BoardDrawer();
     }
 
+    /**
+     * Tests the construction of a Hexapawn board with no pieces on it.
+     */
     @Test
     void drawBlankBoard(){
         Pawn[][] blankBoard = {
@@ -39,9 +45,12 @@ class BoardDrawerTest{
         assertEquals(expectedOutcome, boardDrawer.drawBoard(blankBoard));
     }
 
+    /**
+     * Tests the construction of a Hexapawn board in the initial configuration, with white pawn on the bottommost row.
+     */
     @Test
     void drawStartingBoard(){
-        Pawn[][] blankBoard = {
+        Pawn[][] startingBoard = {
                 {new Pawn(PawnTypes.BLACK, -1), new Pawn(PawnTypes.BLACK, -2), new Pawn(PawnTypes.BLACK, -3)},
                 {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0)},
                 {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
@@ -58,12 +67,15 @@ class BoardDrawerTest{
                 _(1)__(2)__(3)_
                 """;
 
-        assertEquals(expectedOutcome, boardDrawer.drawBoard(blankBoard));
+        assertEquals(expectedOutcome, boardDrawer.drawBoard(startingBoard));
     }
 
+    /**
+     * Tests the construction of a Hexapawn board with Pawns in various
+     */
     @Test
     void drawBoardOddConfiguration(){
-        Pawn[][] blankBoard = {
+        Pawn[][] midGameBoard = {
                 {new Pawn(PawnTypes.BLACK, -1), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0)},
                 {new Pawn(PawnTypes.BLACK, -2), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)},
                 {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLACK, -3)} };
@@ -80,6 +92,6 @@ class BoardDrawerTest{
                 _(1)_     _(#)_
                 """;
 
-        assertEquals(expectedOutcome, boardDrawer.drawBoard(blankBoard));
+        assertEquals(expectedOutcome, boardDrawer.drawBoard(midGameBoard));
     }
 }
