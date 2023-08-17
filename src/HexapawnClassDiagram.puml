@@ -37,8 +37,13 @@ class BoardDrawer{
     - String drawEmptySquare(int curRowIndex, int curColumnIndex)
 }
 
-class Main{
+class HexapawnBlackPerfectGameTree{
+    + String getBestMove(Pawn[][] hexapawnBoard)
+    - String boardToString(Pawn[][] hexapawnBoard)
+}
 
+class Main{
+    + void {static} main(String[] args)
 }
 
 enum PawnTypes{
@@ -63,6 +68,7 @@ Pawn o-- PawnTypes
 Pawn o-- Directions
 HexapawnBoard o-- StatesOfGame
 BoardDrawer "Gets board" <--o Main
+HexapawnBlackPerfectGameTree "Gets board" <--o Main
 Main o-- HexapawnBoard
 HexapawnBoard "One" o-- "Many" Pawn : contains
 

@@ -105,7 +105,7 @@ class HexapawnBoardTest{
     }
 
     /**
-     * Tests the existence of a winner, black being said winner, in the case of a stalemate.
+     * Tests the existence of a winner, black being said winner in this scenario, in the case of a stalemate.
      */
     @Test
     void winnerExistsStalemate(){
