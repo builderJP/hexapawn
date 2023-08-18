@@ -1,14 +1,28 @@
 package edu.sandiego.comp305.sp23;
 
-public class HexapawnBlackPlaysPerfectly{
+/**
+ * This class provides an implementation of a perfect black player AI for the Hexapawn game.
+ * This AI player makes optimal moves based on the current configuration of the game board.
+ * The class analyzes the current state of the board and performs the best possible move for the black player.
+ * @author JP Tasto
+ */
+public class HexapawnPerfectBlackAI{
 
     protected HexapawnBoard hexapawnBoard;
 
-    HexapawnBlackPlaysPerfectly(){
+    /**
+     * Constructs a new instance of the HexapawnPerfectBlackAI class.
+     * Initializes the class with a new instance of the HexapawnBoard class.
+     */
+    HexapawnPerfectBlackAI(){
         hexapawnBoard = new HexapawnBoard();
     }
 
-    //This will just interact with the hexapawnBoard
+    /**
+     * Analyzes the current game board configuration and makes the best move for the black player.
+     * This method determines the optimal move black can make based on the current state of the game,
+     * and executes the chosen move on the game board.
+     */
     public void blackDoBestMove(){
         switch(boardToString()){
             //White moves leftmost pawn as first move

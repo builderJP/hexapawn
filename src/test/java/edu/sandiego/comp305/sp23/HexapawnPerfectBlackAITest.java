@@ -6,13 +6,20 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HexapawnBlackPlaysPerfectlyTest{
+/**
+ * Test class for HexapawnPerfectBlackAI
+ * Author: JP Tasto
+ */
+class HexapawnPerfectBlackAITest{
 
-    private static HexapawnBlackPlaysPerfectly hexapawnGame;
+    private static HexapawnPerfectBlackAI hexapawnGame;
 
+    /**
+     * Creates a new HexapawnPerfectBlackAI instance before all test methods are executed.
+     */
     @BeforeAll
     public static void createBlackGameTree(){
-        hexapawnGame = new HexapawnBlackPlaysPerfectly();
+        hexapawnGame = new HexapawnPerfectBlackAI();
     }
 
     /**
@@ -23,6 +30,10 @@ class HexapawnBlackPlaysPerfectlyTest{
         hexapawnGame.hexapawnBoard.resetBoard();
     }
 
+    /**
+     * Tests to see if the black AI properly responds to the leftmost white pawn moving as white's first move.
+     * The expected response of the black AI is verified against the resulting game board.
+     */
     @Test
     void blackDoBestMove(){
         Pawn[][] properResponseToLeftWhitePawnMove = {
@@ -36,6 +47,10 @@ class HexapawnBlackPlaysPerfectlyTest{
         assertArrayEquals(properResponseToLeftWhitePawnMove, hexapawnGame.hexapawnBoard.getBoard());
     }
 
+    /**
+     * Tests whether the game board remains unchanged when the black AI's optimal move is not in the game tree.
+     * The game board's initial state is compared with the board after the black AI's (lack of doing a) move.
+     */
     @Test
     void emptyStringForBoardsNotInGameTree(){
         Pawn[][] initialBoard = {
