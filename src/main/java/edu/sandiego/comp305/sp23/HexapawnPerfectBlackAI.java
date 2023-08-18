@@ -15,7 +15,7 @@ public class HexapawnPerfectBlackAI{
      * Initializes the class with a new instance of the HexapawnBoard class.
      */
     HexapawnPerfectBlackAI(){
-        hexapawnBoard = new HexapawnBoard();
+        this.hexapawnBoard = new HexapawnBoard();
     }
 
     /**
@@ -24,7 +24,7 @@ public class HexapawnPerfectBlackAI{
      * and executes the chosen move on the game board.
      */
     public void blackDoBestMove(){
-        switch(boardToString()){
+        switch(this.hexapawnBoard.toString()){
             //White moves leftmost pawn as first move
             case "BBBW   WW" -> hexapawnBoard.attack(hexapawnBoard.getBoard()[0][1].getPawnID(), true);
             //Below are responses to the possible moves white can do after black responds to their initial move
@@ -44,21 +44,5 @@ public class HexapawnPerfectBlackAI{
             case "B B  WW  " -> hexapawnBoard.move(hexapawnBoard.getBoard()[0][0].getPawnID());
             case "B BW B W ", "B B WBW  " -> hexapawnBoard.move(hexapawnBoard.getBoard()[1][2].getPawnID());
         }
-    }
-
-    private String boardToString(){
-        StringBuilder boardAsString = new StringBuilder();
-
-        for(int curRowIndex = 0; curRowIndex < 3; curRowIndex++){
-            for(int curColumnIndex = 0; curColumnIndex < 3; curColumnIndex++){
-                switch(hexapawnBoard.getBoard()[curRowIndex][curColumnIndex].getType()){
-                    case BLACK -> boardAsString.append("B");
-                    case WHITE -> boardAsString.append("W");
-                    default -> boardAsString.append(" ");
-                }
-            }
-        }
-
-        return boardAsString.toString();
     }
 }

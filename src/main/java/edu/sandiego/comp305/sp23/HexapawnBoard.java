@@ -169,6 +169,28 @@ public class HexapawnBoard{
                 {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
     }
 
+    //TODO: WRITE EQUALS JAVADOC
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        StringBuilder boardAsString = new StringBuilder();
+
+        for(int curRowIndex = 0; curRowIndex < 3; curRowIndex++){
+            for(int curColumnIndex = 0; curColumnIndex < 3; curColumnIndex++){
+                switch(board[curRowIndex][curColumnIndex].getType()){
+                    case BLACK -> boardAsString.append("B");
+                    case WHITE -> boardAsString.append("W");
+                    default -> boardAsString.append(" ");
+                }
+            }
+        }
+
+        return boardAsString.toString();
+    }
+
     public Pawn[][] getBoard(){
         return this.board;
     }
