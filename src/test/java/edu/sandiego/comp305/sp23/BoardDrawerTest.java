@@ -11,13 +11,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class BoardDrawerTest{
     private static BoardDrawer boardDrawer;
+    private static HexapawnBoard hexapawnBoard;
 
     /**
      * Creates a new BoardDrawer instance before all test methods are executed.
      */
     @BeforeAll
     public static void createBoardDrawer(){
-        boardDrawer = new BoardDrawer();
+        hexapawnBoard = new HexapawnBoard();
+        boardDrawer = new BoardDrawer(hexapawnBoard.getBoard());
     }
 
     /**
@@ -50,11 +52,6 @@ class BoardDrawerTest{
      */
     @Test
     void drawStartingBoard(){
-        Pawn[][] startingBoard = {
-                {new Pawn(PawnTypes.BLACK, -1), new Pawn(PawnTypes.BLACK, -2), new Pawn(PawnTypes.BLACK, -3)},
-                {new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0), new Pawn(PawnTypes.BLANK_SPACE, 0)},
-                {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
-
         String expectedOutcome = """
                 :::::     :::::
                 : _ :  _  : _ :
@@ -67,7 +64,7 @@ class BoardDrawerTest{
                 _(1)__(2)__(3)_
                 """;
 
-        assertEquals(expectedOutcome, boardDrawer.drawBoard(startingBoard));
+        assertEquals(expectedOutcome, boardDrawer.drawBoard(hexapawnBoard.getBoard()));
     }
 
     /**
