@@ -169,10 +169,13 @@ public class HexapawnBoard{
                 {new Pawn(PawnTypes.WHITE, 1), new Pawn(PawnTypes.WHITE, 2), new Pawn(PawnTypes.WHITE, 3)} };
     }
 
-    //TODO: WRITE EQUALS JAVADOC
     /**
+     * Returns a string representation of the current state of the game board.
+     * The Hexapawn game board is turned into a nine-character string,
+     * where each set of three characters represents a row of the board.
+     * 'B' stands for a black pawn, 'W' stands for a white pawn, and space (' ') stands for an empty square.
      *
-     * @return
+     * @return A string representation of the current state of the game board.
      */
     @Override
     public String toString(){
