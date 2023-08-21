@@ -22,6 +22,7 @@ class HexapawnBoard{
     + StatesOfGame doesWinnerExist(boolean isWhitesTurn)
     + Pawn[][] getBoard()
     + void resetBoard()
+    + String toString()
     - int[] getPawnPosition(int pawnID)
     - Pawn removePawn(int[] postionOfPawn)
     - boolean isInBounds(int targetRow, int targetColumn)
@@ -37,9 +38,18 @@ class BoardDrawer{
     - String drawEmptySquare(int curRowIndex, int curColumnIndex)
 }
 
-class HexapawnBlackPerfectGameTree{
-    + String getBestMove(Pawn[][] hexapawnBoard)
-    - String boardToString(Pawn[][] hexapawnBoard)
+class HexapawnPerfectBlackAI{
+    # HexapawnBoard hexapawnBoard
+    + HexapawnPerfectBlackAI()
+    + HexapawnPerfectBlackAI(HexapawnBoard hexapawnBoard)
+    + String blackDoBestMove()
+}
+
+class HexapawnWhitePlayerPrompts{
+    # HexapawnBoard hexapawnBoard
+    + HexapawnWhitePlayerPrompts()
+    + HexapawnWhitePlayerPrompts(HexapawnBoard hexapawnBoard)
+    + String getWhitePlayerPrompts()
 }
 
 class Main{
@@ -68,8 +78,24 @@ Pawn o-- PawnTypes
 Pawn o-- Directions
 HexapawnBoard o-- StatesOfGame
 BoardDrawer "Gets board" <--o Main
-HexapawnBlackPerfectGameTree "Gets board" <--o Main
+HexapawnPerfectBlackAI *-- HexapawnBoard
+HexapawnWhitePlayerPrompts *-- HexapawnBoard
+Main o-- HexapawnWhitePlayerPrompts
+Main o-- HexapawnPerfectBlackAI
 Main o-- HexapawnBoard
 HexapawnBoard "One" o-- "Many" Pawn : contains
+
+note as getBoardFromMain
+    When initialized in Main, the hexapawnBoard variable
+    of both instances refer to the same HexapawnBoard.
+
+    (The constructors with a parameter is used for both
+    classes when they are initialized in Main, and
+    the HexapawnBoard passed in as a parameter is a
+    HexapawnBoard that was initialized earlier in Main.)
+end note
+
+getBoardFromMain . HexapawnPerfectBlackAI
+getBoardFromMain .. HexapawnWhitePlayerPrompts
 
 @enduml
