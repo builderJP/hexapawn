@@ -47,14 +47,14 @@ public class HexapawnWhitePlayerPrompts{
             }
             case "BB  B W W" -> {
                 return "1) Attack northeastward with Pawn " + board[2][0].getPawnID() + "\n2) Move Pawn " + board[2][0].getPawnID() +
-                        "3) Attack northwestward with Pawn " + board[2][2].getPawnID() + "\n4) Move Pawn " + board[2][2].getPawnID() + "\n";
+                        "\n3) Attack northwestward with Pawn " + board[2][2].getPawnID() + "\n4) Move Pawn " + board[2][2].getPawnID() + "\n";
             }
             case " B BW   W" -> {
-                return "1) Move Pawn " + board[2][2].getPawnID();
+                return "1) Move Pawn " + board[2][2].getPawnID() + "\n";
             }
             case "B B  BWW " -> {
                 return "1) Move Pawn " + board[2][0].getPawnID() + "\n2) Move Pawn " + board[2][1].getPawnID() +
-                        "3) Attack northeastward with Pawn " + board[2][1].getPawnID() + "\n";
+                        "\n3) Attack northeastward with Pawn " + board[2][1].getPawnID() + "\n";
             }
             default -> {
                 return "";

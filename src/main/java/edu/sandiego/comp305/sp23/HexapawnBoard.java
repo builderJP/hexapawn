@@ -198,7 +198,7 @@ public class HexapawnBoard{
         return this.board;
     }
 
-    private int[] getPawnPosition(int pawnID){
+    protected int[] getPawnPosition(int pawnID){
         int[] positionOfPawn;
         int row = -1;
         int column = -1;

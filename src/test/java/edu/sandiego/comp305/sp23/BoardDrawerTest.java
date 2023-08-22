@@ -19,7 +19,7 @@ class BoardDrawerTest{
     @BeforeAll
     public static void createBoardDrawer(){
         hexapawnBoard = new HexapawnBoard();
-        boardDrawer = new BoardDrawer(hexapawnBoard.getBoard());
+        boardDrawer = new BoardDrawer();
     }
 
     /**

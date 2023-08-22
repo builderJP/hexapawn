@@ -16,9 +16,7 @@ public class BoardDrawer{
     /**
      * Default constructor for BoardDrawer.
      */
-    public BoardDrawer(Pawn[][] hexapawnBoard){
-        this.hexapawnBoard = hexapawnBoard;
-    }
+    public BoardDrawer(){}
 
     /**
      * Constructs an ASCII representation of a Hexapawn board.
