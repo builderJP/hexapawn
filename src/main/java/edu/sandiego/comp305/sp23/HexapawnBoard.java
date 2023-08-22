@@ -198,6 +198,11 @@ public class HexapawnBoard{
         return this.board;
     }
 
+    /**
+     * Retrieves the position (row and column) of a pawn on the board based on its pawn ID.
+     * @param pawnID The identification number of the pawn one wants to find.
+     * @return An array containing the row and column indices of the pawn's position, or an empty array if the pawn was not found.
+     */
     protected int[] getPawnPosition(int pawnID){
         int[] positionOfPawn;
         int row = -1;

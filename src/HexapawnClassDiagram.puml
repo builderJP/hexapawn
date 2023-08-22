@@ -77,7 +77,7 @@ enum StatesOfGame{
 Pawn o-- PawnTypes
 Pawn o-- Directions
 HexapawnBoard o-- StatesOfGame
-BoardDrawer "Gets board" <--o Main
+BoardDrawer --o Main
 HexapawnPerfectBlackAI *-- HexapawnBoard
 HexapawnWhitePlayerPrompts *-- HexapawnBoard
 Main o-- HexapawnWhitePlayerPrompts

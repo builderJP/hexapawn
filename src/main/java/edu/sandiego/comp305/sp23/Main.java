@@ -2,7 +2,16 @@ package edu.sandiego.comp305.sp23;
 
 import java.util.Scanner;
 
+/**
+ * The main class that runs the Hexapawn game and facilitates the user's interactions with the game, along with drawing
+ * the game board after each move as well as prompting black to make the most optimal move on each time.
+ * @author JP Tasto
+ */
 public class Main{
+    /**
+     * The main method that starts and manages the user's interactions & the gameplay of the Hexapawn game.
+     * @param args The command-line arguments (not used).
+     */
     public static void main(String[] args){
 
         System.out.println("Welcome to Hexapawn! Learn more about the game, the rules, what this rendition of the game represents," +
@@ -21,6 +30,7 @@ public class Main{
         BoardDrawer boardDrawer = new BoardDrawer();
         StatesOfGame curStateOfGame;
 
+        //Assorted variables used to parse user's input
         String curPlayerPrompts;
         String[] listOfCurPrompts;
         String[] usersChosenPrompt;
@@ -29,7 +39,6 @@ public class Main{
         int curPawnID;
 
         Scanner scanner = new Scanner(System.in);
-
 
         while(playAgain){
             gameOngoing = true;
@@ -102,12 +111,13 @@ public class Main{
                     gameOngoing = false;
                 } else{ //If game is not over, do black's turn
                     System.out.println(boardDrawer.drawBoard(board.getBoard()));
-                    System.out.println("Black will now do it's move.\n");
+                    System.out.println("Black will now do its move.\n");
 
                     blackAI.blackDoBestMove();
                 }
             }
 
+            //Asking user if they want to play again & confirming input
             improperInput = true;
             while(improperInput){
                 System.out.println("Would you like to play again?     [Y] or [N]");
