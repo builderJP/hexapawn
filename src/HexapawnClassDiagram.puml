@@ -8,10 +8,10 @@ class Pawn{
     - type
     + Pawn(PawnTypes type, int pawnID)
     + Pawn(Pawn otherPawn)
-    + equals(otherObj)
-    + getDirection()
-    + getPawnID()
-    + getType()
+    + boolean equals(otherObj)
+    + Directions getDirection()
+    + int getPawnID()
+    + PawnTypes getType()
 }
 
 class HexapawnBoard{
@@ -23,7 +23,7 @@ class HexapawnBoard{
     + Pawn[][] getBoard()
     + void resetBoard()
     + String toString()
-    - int[] getPawnPosition(int pawnID)
+    # int[] getPawnPosition(int pawnID)
     - Pawn removePawn(int[] postionOfPawn)
     - boolean isInBounds(int targetRow, int targetColumn)
     - PawnTypes getOpponentsColor(Pawn targetPawn)
@@ -86,10 +86,10 @@ Main o-- HexapawnBoard
 HexapawnBoard "One" o-- "Many" Pawn : contains
 
 note as getBoardFromMain
-    When initialized in Main, the hexapawnBoard variable
-    of both instances refer to the same HexapawnBoard.
+    When initialized in the main method, the hexapawnBoard
+    variable of both instances refer to the same HexapawnBoard.
 
-    (The constructors with a parameter is used for both
+    (The constructors with a parameter are used for both
     classes when they are initialized in Main, and
     the HexapawnBoard passed in as a parameter is a
     HexapawnBoard that was initialized earlier in Main.)
